@@ -8,6 +8,7 @@ Workshop for foss4g neebies
 
 ## Carto 
 <code>npm install -g carto</code>
+
 <code>carto project.mml > mapnik.xml</code>
 
 ## Render OSM tiles on the fly 
