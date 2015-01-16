@@ -1,6 +1,14 @@
 # foss4g-workshop
 Workshop for foss4g neebies
 
+# Download SRTM Data
+<a href="http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/">HGT data</a>
+
+## GRASS
+HGT - r.slope
+HGT - r.contour.level (100)
+HGT - r.contour.step (100)
+
 ##POSTGIS
 select ST_Box2D(the_geom) from ne_10m_admin_0_countries where iso_a2 = 'AT';
                                  st_box2d                                 
@@ -19,6 +27,16 @@ Calculate the area of Austia
  83993.1389909428
 (1 row)
 
+## Download osm data (i.e. from geofabrik)
+
+## Copy great britian osm data to database
+osm2pgsql -U user -W -H localhost -C 1300 -s -d uk great-britain-latest.osm.pbf
+
+## Extract data from scotland
+osmosis --read-pbf great-britain-latest.osm.pbf --bounding-box top=60 left=-10 bottom=55 right=0 --write-pbf scotland.osm.pbf
+
+## Copy scotland osm data to database
+osm2pgsql -U user -W -H localhost -C 1300 -s -d sl scotland.osm.pbf
 
 
 ## Style (OSM-Bright)
