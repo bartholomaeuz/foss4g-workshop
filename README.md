@@ -1,7 +1,32 @@
 # foss4g-workshop
 Workshop for foss4g neebies
 
-# Download SRTM Data
+Natical maps of scotland
+
+http://maps.nls.uk/geo/explore/#zoom=15&lat=55.85697&lon=-4.26107&layers=74401014
+
+##zyGrib 
+Download wind data for scotland
+
+## QGIS
+Open Natural Earth data
+Filter admin = Austria or region = Scotland
+
+### rename filtered data
+at - sl
+
+### label features
+name
+
+### save as .. esri shape file
+
+### clip evaluation points
+Vector - geoprocessing - clip
+
+name  ||  '('  || elevation  || ')'
+
+
+## Download SRTM Data
 <a href="http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/">HGT data</a>
 
 ## GRASS
@@ -34,6 +59,10 @@ osm2pgsql -U user -W -H localhost -C 1300 -s -d uk great-britain-latest.osm.pbf
 
 ## Extract data from scotland
 osmosis --read-pbf great-britain-latest.osm.pbf --bounding-box top=60 left=-10 bottom=55 right=0 --write-pbf scotland.osm.pbf
+
+## Create Database SL
+create database sl
+create extension postgis
 
 ## Copy scotland osm data to database
 osm2pgsql -U user -W -H localhost -C 1300 -s -d sl scotland.osm.pbf
