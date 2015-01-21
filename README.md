@@ -34,6 +34,16 @@ HGT - r.slope
 HGT - r.contour.level (100)
 HGT - r.contour.step (100)
 
+## R - Project
+<a href="http://localhost/en/quickstart/R_quickstart.html">localhost</a>
+library(raster)
+dem <- raster("N55W004.hgt")
+plot(dem)
+length(dem)
+dema <- array(dem,dim=c(1201,1201))
+dema[100,]
+plot(dema[100,])
+
 ##POSTGIS
 select ST_Box2D(the_geom) from ne_10m_admin_0_countries where iso_a2 = 'AT';
                                  st_box2d                                 
